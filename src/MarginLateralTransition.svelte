@@ -27,14 +27,6 @@
     display: inline-block;
   }
 
-  .red {
-    background-color: red;
-  }
-
-  .hidden {
-    display: none;
-  }
-
   .vhidden {
     visibility: hidden;
   }

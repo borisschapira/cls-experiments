@@ -3,6 +3,7 @@
   import MarginLateralTransition from "./MarginLateralTransition.svelte";
   import FlexGrow from "./FlexGrow.svelte";
   import InsertingEl from "./InsertingEl.svelte";
+  import SelfIFrame from "./SelfIFrame.svelte";
 
   let cls = 0;
 
@@ -30,9 +31,24 @@
     cls = 0;
   }
 </script>
+
 <style>
   :global(label) {
     display: inline-block;
+  }
+
+  :global(.hidden) {
+    display: none;
+  }
+
+  :global(.red) {
+    background-color: red;
+  }
+  :global(.green) {
+    background-color: green;
+  }
+  :global(.blue) {
+    background-color: #f00;
   }
 </style>
 
@@ -43,7 +59,9 @@
     based on the
     <a href="https://wicg.github.io/layout-instability/">
       Layout Instability API
-    </a>&nbsp;·&nbsp;<a href="https://github.com/borisschapira/cls-experiments">source code</a>
+    </a>
+    &nbsp;·&nbsp;
+    <a href="https://github.com/borisschapira/cls-experiments">source code</a>
   </small>
 </h1>
 <p>
@@ -56,4 +74,5 @@
 <MarginLateralTransition />
 <LateralTransition />
 <FlexGrow />
+<SelfIFrame />
 <InsertingEl />

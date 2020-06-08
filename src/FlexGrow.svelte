@@ -16,20 +16,6 @@
     padding: 2rem;
   }
 
-  .red {
-    background-color: red;
-  }
-  .green {
-    background-color: green;
-  }
-  .blue {
-    background-color: #f00;
-  }
-
-  .hidden {
-    display: none;
-  }
-
   .container p.growing:hover {
     flex: 2;
   }

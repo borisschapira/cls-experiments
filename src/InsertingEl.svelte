@@ -45,9 +45,6 @@
   :global(.new) {
     color: rgb(89, 159, 0);
   }
-  .hidden {
-    display: none;
-  }
   :global(li) {
     transition: color 0.5s ease;
   }

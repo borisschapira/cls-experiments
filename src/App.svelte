@@ -4,6 +4,7 @@
   import FlexGrow from "./FlexGrow.svelte";
   import InsertingEl from "./InsertingEl.svelte";
   import SelfIFrame from "./SelfIFrame.svelte";
+  import ButtonAppear from "./ButtonAppear.svelte";
 
   let cls = 0;
 
@@ -75,4 +76,5 @@
 <LateralTransition />
 <FlexGrow />
 <SelfIFrame />
+<ButtonAppear />
 <InsertingEl />

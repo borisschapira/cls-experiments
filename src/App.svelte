@@ -5,6 +5,7 @@
   import InsertingEl from "./InsertingEl.svelte";
   import SelfIFrame from "./SelfIFrame.svelte";
   import ButtonAppear from "./ButtonAppear.svelte";
+  import OpacityTransition from "./OpacityTransition.svelte";
 
   let cls = 0;
 
@@ -51,6 +52,10 @@
   :global(.blue) {
     background-color: #f00;
   }
+
+  .larger {
+    font-size: xx-large;
+  }
 </style>
 
 <h1>
@@ -65,7 +70,7 @@
     <a href="https://github.com/borisschapira/cls-experiments">source code</a>
   </small>
 </h1>
-<p>
+<p class="larger">
   <button on:click={resetCls}>reset</button>
   CLS:
   <strong id="cls">{displayCls}</strong>
@@ -74,6 +79,7 @@
 
 <MarginLateralTransition />
 <LateralTransition />
+<OpacityTransition />
 <FlexGrow />
 <SelfIFrame />
 <ButtonAppear />

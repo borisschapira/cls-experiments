@@ -56,6 +56,10 @@
   .larger {
     font-size: xx-large;
   }
+
+  small {
+    font-size: 0.7em;
+  }
 </style>
 
 <h1>
@@ -68,6 +72,8 @@
     </a>
     &nbsp;·&nbsp;
     <a href="https://github.com/borisschapira/cls-experiments">source code</a>
+    &nbsp;·&nbsp;
+    made by <a href="https://twitter.com/boostmarks">boostmarks</a> with <span aria-label="love">❤️</span>
   </small>
 </h1>
 <p class="larger">

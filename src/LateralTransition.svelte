@@ -3,6 +3,7 @@
 
   let bouncing = false,
     vhidden = false,
+    opacity = 1,
     white = false,
     displayed = false,
     duration = 2;
@@ -49,9 +50,13 @@
 </h1>
 <div class:hidden>
   <p>
-    Transition duration:
-    <input type="range" bind:value={duration} min="0" max="1" step="0.0001" />
-    {duration}
+    <label for="drange">Transition duration:</label>
+    <input id="drange" type="range" bind:value={duration} min="0" max="2" step="0.0001" />
+    {duration}s
+    <br />
+    <label for="orange">Opacity:</label>
+    <input id="orange" type="range" bind:value={opacity} min="0" max="1" step="0.0001" />
+    {opacity}
     <br />
     <input id="vhidden" type="checkbox" bind:checked={vhidden} />
     <label for="vhidden">
@@ -67,14 +72,17 @@
     class:bouncing
     class:vhidden
     class:white
-    style=" transition: transform {duration}s ease;" />
+    style=" transition: transform {duration}s ease;opacity:{opacity};" />
   <span class="someText">Some text.</span>
   <p>
     Using a translation does not create layout shifts
     <strong>except when the duration is 0.</strong>
-    If you make the square
+    <br />
+    <strong>In that case</strong>, if you make the square
     <code>white</code>
     , it still produces layout-shifts, even if nothing's visible to the user.
+    <br />
+    Same thing if you change the <code>opacity</code> of the element.
     <br />
     If you make the square
     <code>visibility: hidden</code>

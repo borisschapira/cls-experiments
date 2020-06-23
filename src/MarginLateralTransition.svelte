@@ -44,48 +44,64 @@
   }
 </style>
 
-<h1>
-  <input id="mtranslate" type="checkbox" bind:checked={displayed} />
-  <label for="mtranslate">marginX (in flow)</label>
-</h1>
-<div class:hidden>
-  <p>
-    <label for="drange">Transition duration:</label>
-    <input id="drange" type="range" bind:value={duration} min="0" max="2" step="0.0001" />
-    {duration}s
-    <br />
-    <label for="orange">Opacity:</label>
-    <input id="orange" type="range" bind:value={opacity} min="0" max="1" step="0.0001" />
-    {opacity}
-    <br />
-    <input id="vhidden" type="checkbox" bind:checked={vhidden} />
-    <label for="vhidden">
-      add
-      <code>visibility: hidden</code>
-    </label>
-    <br />
-    <input id="ws" type="checkbox" bind:checked={white} />
-    <label for="ws">make the square white</label>
-  </p>
-  <span
-    class="square red"
-    class:bouncing
-    class:vhidden
-    class:white
-    style=" transition: margin-left {duration}s ease;opacity:{opacity};" />
+<div class="flex-item" class:displayed>
+  <h1>
+    <input id="mtranslate" type="checkbox" bind:checked={displayed} />
+    <label for="mtranslate">marginX (in flow)</label>
+  </h1>
+  <div class:hidden>
+    <p>
+      <label for="drange">Transition duration:</label>
+      <input
+        id="drange"
+        type="range"
+        bind:value={duration}
+        min="0"
+        max="2"
+        step="0.0001" />
+      {duration}s
+      <br />
+      <label for="orange">Opacity:</label>
+      <input
+        id="orange"
+        type="range"
+        bind:value={opacity}
+        min="0"
+        max="1"
+        step="0.0001" />
+      {opacity}
+      <br />
+      <input id="vhidden" type="checkbox" bind:checked={vhidden} />
+      <label for="vhidden">
+        add
+        <code>visibility: hidden</code>
+      </label>
+      <br />
+      <input id="ws" type="checkbox" bind:checked={white} />
+      <label for="ws">make the square white</label>
+    </p>
+    <span
+      class="square red"
+      class:bouncing
+      class:vhidden
+      class:white
+      style=" transition: margin-left {duration}s ease;opacity:{opacity};" />
 
-  <p>
-    Modifying the margin creates layout-shifts… even if
-    <strong>no element is "pushed" but the animated one.</strong>
-    <br />
-    If you make the square
-    <code>white</code>
-    , it still produces layout-shifts, even if nothing's visible to the user.
-    <br />
-    Same thing if you change the <code>opacity</code> of the element.
-    <br />
-    If you make the square
-    <code>visibility: hidden</code>
-    , however, no layout-shift.
-  </p>
+    <p>
+      Modifying the margin creates layout-shifts… even if
+      <strong>no element is "pushed" but the animated one.</strong>
+      <br />
+      If you make the square
+      <code>white</code>
+      , it still produces layout-shifts, even if nothing's visible to the user.
+      <br />
+      Same thing if you change the
+      <code>opacity</code>
+      of the element.
+      <br />
+      If you make the square
+      <code>visibility: hidden</code>
+      , however, no layout-shift.
+    </p>
+  </div>
 </div>

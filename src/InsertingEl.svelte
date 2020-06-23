@@ -50,50 +50,52 @@
   }
 </style>
 
-<h1>
-  <input id="insertEl" type="checkbox" bind:checked={displayed} />
-  <label for="insertEl">Inserting elements in a list</label>
-</h1>
-<div class:hidden>
-  <p>
-    Prepending an element in a list moves the others and creates layout shifts.
-    Appending an element does not.
-    <br />
-    <small>
-      <em>
-        <strong>Note:</strong>
-        There's a default 600&nbsp;ms delay between the click and the insertion
-        to make sure the layout shifts are not considered as related to the
-        click.
-        <br />
-        <strong>Interestingly:</strong>
-        If your FID is short, the layout-shift happens near the user action.
-        <strong>If your FID is &gt;500ms… your CLS improves.</strong>
-      </em>
-    </small>
-  </p>
-  <p>
-    Delay duration:
-    <input type="range" bind:value={duration} min="0" max="1000" step="10" />
-    {duration}&nbsp;ms
-  </p>
-  <button on:click={prependLi}>
-    Prepend
-    <code>li</code>
-    element
-  </button>
-  <button on:click={appendLi}>
-    Append
-    <code>li</code>
-    element
-  </button>
-  <button on:click={resetUl}>
-    Empty
-    <code>ul</code>
-  </button>
-  <ol id="list">
-    <li>Element</li>
-    <li>Element</li>
-    <li>Element</li>
-  </ol>
+<div class="flex-item nba" class:displayed>
+  <h1>
+    <input id="insertEl" type="checkbox" bind:checked={displayed} />
+    <label for="insertEl">Inserting elements in a list</label>
+  </h1>
+  <div class:hidden>
+    <p>
+      Prepending an element in a list moves the others and creates layout
+      shifts. Appending an element does not.
+      <br />
+      <small>
+        <em>
+          <strong>Note:</strong>
+          There's a default 600&nbsp;ms delay between the click and the
+          insertion to make sure the layout shifts are not considered as related
+          to the click.
+          <br />
+          <strong>Interestingly:</strong>
+          If your FID is short, the layout-shift happens near the user action.
+          <strong>If your FID is &gt;500ms… your CLS improves.</strong>
+        </em>
+      </small>
+    </p>
+    <p>
+      Delay duration:
+      <input type="range" bind:value={duration} min="0" max="1000" step="10" />
+      {duration}&nbsp;ms
+    </p>
+    <button on:click={prependLi}>
+      Prepend
+      <code>li</code>
+      element
+    </button>
+    <button on:click={appendLi}>
+      Append
+      <code>li</code>
+      element
+    </button>
+    <button on:click={resetUl}>
+      Empty
+      <code>ul</code>
+    </button>
+    <ol id="list">
+      <li>Element</li>
+      <li>Element</li>
+      <li>Element</li>
+    </ol>
+  </div>
 </div>

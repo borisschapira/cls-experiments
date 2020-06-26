@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CLS Experiments</title>
+    <style>
+      .square {
+        width: 4rem;
+        height: 4rem;
+        display: inline-block;
+        background-color: red;
+        transition: transform 0s ease;
+      }
+      .bouncing {
+        transform: translateX(40vw);
+      }
+    </style>
+    <script>
+      let cls = 0;
+      try {
+        const po = new PerformanceObserver((entryList) =>
+          entryList.getEntries().forEach((e) => {
+            if (!e.hadRecentInput) {
+              cls += e.value;
+              console.log(`CLS + ${e.value.toFixed(8)}`, cls.toFixed(8));
+            }
+          })
+        );
+
+        po.observe({
+          type: "layout-shift",
+          buffered: true,
+        });
+      } catch (e) {
+        console.log(e);
+      }
+
+      function toggleTranslateX() {
+        document.querySelector(".square").classList.toggle("bouncing");
+      }
+    </script>
+  </head>
+  <body>
+    <ol>
+      <li>
+        In the DevTools, open the Command Menu with
+        <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> or
+        <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac)
+      </li>
+      <li>Start typing "Rendering"</li>
+      <li>Run the Show Rendering command.</li>
+      <li>
+        Enable the <strong>Layout Shift Regions</strong> checkbox. As you
+        interact with the page, layout shifts are highlighted blue.
+      </li>
+	</ol>
+	<p>
+		Or you can <a href="./transition0.mp4">watch this video recorded with Chrome 83</a>.
+	</p>
+    <p>
+      <button onclick="toggleTranslateX()">
+        Toggle <code>0-second translateX</code>
+      </button>
+    </p>
+    <div class="square"></div>
+  </body>
+</html>

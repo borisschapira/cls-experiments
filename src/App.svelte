@@ -6,7 +6,7 @@
   import SelfIFrame from "./SelfIFrame.svelte";
   import ButtonAppear from "./ButtonAppear.svelte";
   import OpacityTransition from "./OpacityTransition.svelte";
-  import unique from 'unique-selector';
+  import unique from "unique-selector";
 
   let cls = 0,
     elementsCls = new Map();
@@ -14,8 +14,10 @@
   try {
     const po = new PerformanceObserver(entryList =>
       entryList.getEntries().forEach(e => {
-        if (!e.hadRecentInput) {
-          console.log(e.value, e);
+        if (e.hadRecentInput) {
+          console.log(e);
+        } else {
+          console.log("+" + e.value.toFixed(6), e);
           let node = "undefined";
           if (e.sources && e.sources[0] && e.sources[0].node) {
             node = e.sources[0].node;
@@ -23,9 +25,9 @@
           if (
             node == "undefined" ||
             (node != "undefined" &&
-            node.parentElement.id != "mainEl" &&
-            node.parentElement.id != "cls" &&
-            node.parentElement.id != "hmi")
+              node.parentElement.id != "mainEl" &&
+              node.parentElement.id != "cls" &&
+              node.parentElement.id != "hmi")
           ) {
             const pastValue = elementsCls.has(node)
               ? elementsCls.get(node).value
@@ -79,9 +81,7 @@
   $: displayCls = [...elementsCls]
     .reduce((a, c) => a + c[1].value, 0)
     .toFixed(6);
-  $: mainContributingElement = getMainContributingEl(
-    elementsCls
-  );
+  $: mainContributingElement = getMainContributingEl(elementsCls);
 </script>
 
 <style>
@@ -156,7 +156,13 @@
   <button on:click={resetCls}>reset</button>
   CLS:
   <strong id="cls">{displayCls}</strong>
-  <small id="mainEl">({#if mainContributingElement }{mainContributingElement}{:else}use Chrome > 84 to get info on the main contributing node{/if})</small>
+  <small id="mainEl">
+    (
+    {#if mainContributingElement}
+      {mainContributingElement}
+    {:else}use Chrome > 84 to get info on the main contributing node{/if}
+    )
+  </small>
   <br />
 </p>
 

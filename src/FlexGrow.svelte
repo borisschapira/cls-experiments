@@ -21,7 +21,7 @@
   }
 </style>
 
-<div class="flex-item" class:displayed>
+<div id="flexGrowXp" class="flex-item" class:displayed>
   <h1>
     <input id="flexGrow" type="checkbox" bind:checked={displayed} />
     <label for="flexGrow">

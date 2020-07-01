@@ -50,7 +50,7 @@
   }
 </style>
 
-<div class="flex-item nba" class:displayed>
+<div id="insertElXp" class="flex-item nba" class:displayed>
   <h1>
     <input id="insertEl" type="checkbox" bind:checked={displayed} />
     <label for="insertEl">Inserting elements in a list</label>

@@ -44,7 +44,7 @@
   }
 </style>
 
-<div class="flex-item" class:displayed>
+<div id="mtranslateXp" class="flex-item" class:displayed>
   <h1>
     <input id="mtranslate" type="checkbox" bind:checked={displayed} />
     <label for="mtranslate">marginX (in flow)</label>

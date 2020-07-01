@@ -25,7 +25,7 @@
   }
 </style>
 
-<div class="flex-item" class:displayed>
+<div id="buttonAppearXp" class="flex-item" class:displayed>
   <h1>
     <input id="buttonAppear" type="checkbox" bind:checked={displayed} />
     <label for="buttonAppear">Button appearance (dark pattern)</label>

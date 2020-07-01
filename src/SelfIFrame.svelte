@@ -4,7 +4,7 @@
   $: hidden = !displayed;
 </script>
 
-<div class="flex-item" class:displayed>
+<div id="iFrameXp" class="flex-item" class:displayed>
   <h1>
     <input id="iFrame" type="checkbox" bind:checked={displayed} />
     <label for="iFrame">iFrame</label>

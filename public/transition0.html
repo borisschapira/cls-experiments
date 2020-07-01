@@ -6,8 +6,8 @@
     <title>CLS Experiments</title>
     <style>
       .square {
-        width: 4rem;
-        height: 4rem;
+        width: 20vh;
+        height: 20vh;
         display: inline-block;
         background-color: red;
         transition: transform 0s ease;
@@ -36,8 +36,12 @@
         console.log(e);
       }
 
+      let to;
       function toggleTranslateX() {
-        document.querySelector(".square").classList.toggle("bouncing");
+        to && window.clearTimeout(to);
+        to = setTimeout(function () {
+          document.querySelector(".square").classList.toggle("bouncing");
+        }, 600);
       }
     </script>
   </head>
@@ -54,13 +58,10 @@
         Enable the <strong>Layout Shift Regions</strong> checkbox. As you
         interact with the page, layout shifts are highlighted blue.
       </li>
-	</ol>
-	<p>
-		Or you can <a href="./transition0.mp4">watch this video recorded with Chrome 83</a>.
-	</p>
+    </ol>
     <p>
       <button onclick="toggleTranslateX()">
-        Toggle <code>0-second translateX</code>
+        Toggle <code>0-second translateX</code> (600ms delay)
       </button>
     </p>
     <div class="square"></div>
